@@ -1,0 +1,925 @@
+{
+    "Suo5": {
+        "InforSuite": [
+            "Listener",
+            "JakartaListener",
+            "Filter",
+            "JakartaFilter",
+            "Valve",
+            "JakartaValve",
+            "AgentFilterChain",
+            "AgentContextValve"
+        ],
+        "Tomcat": [
+            "Listener",
+            "JakartaListener",
+            "Filter",
+            "JakartaFilter",
+            "Valve",
+            "JakartaValve",
+            "ProxyValve",
+            "JakartaProxyValve",
+            "Servlet",
+            "JakartaServlet",
+            "AgentFilterChain",
+            "AgentContextValve"
+        ],
+        "JBoss": [
+            "Listener",
+            "Filter",
+            "Valve",
+            "ProxyValve",
+            "AgentFilterChain",
+            "AgentContextValve"
+        ],
+        "Struct2": [
+            "Action"
+        ],
+        "Apusic": [
+            "Listener",
+            "Filter",
+            "Servlet",
+            "AgentFilterChain"
+        ],
+        "BES": [
+            "Listener",
+            "Filter",
+            "Valve",
+            "AgentFilterChain",
+            "AgentContextValve"
+        ],
+        "SpringWebMvc": [
+            "Interceptor",
+            "JakartaInterceptor",
+            "ControllerHandler",
+            "JakartaControllerHandler",
+            "AgentFrameworkServlet"
+        ],
+        "WebLogic": [
+            "Listener",
+            "Filter",
+            "Servlet",
+            "AgentServletContext"
+        ],
+        "TongWeb": [
+            "Listener",
+            "Filter",
+            "Valve",
+            "AgentFilterChain",
+            "AgentContextValve"
+        ],
+        "Resin": [
+            "Listener",
+            "Filter",
+            "Servlet",
+            "AgentFilterChain"
+        ],
+        "WebSphere": [
+            "Listener",
+            "Filter",
+            "Servlet",
+            "AgentFilterManager"
+        ],
+        "SpringWebFlux": [
+            "WebFilter"
+        ],
+        "Jetty": [
+            "Listener",
+            "JakartaListener",
+            "Filter",
+            "JakartaFilter",
+            "Servlet",
+            "JakartaServlet",
+            "AgentHandler"
+        ],
+        "GlassFish": [
+            "Listener",
+            "JakartaListener",
+            "Filter",
+            "JakartaFilter",
+            "Valve",
+            "JakartaValve",
+            "AgentFilterChain",
+            "AgentContextValve"
+        ],
+        "Undertow": [
+            "Listener",
+            "JakartaListener",
+            "Filter",
+            "JakartaFilter",
+            "Servlet",
+            "JakartaServlet",
+            "AgentServletHandler"
+        ]
+    },
+    "Proxy": {
+        "Tomcat": [
+            "WebSocket",
+            "JakartaWebSocket",
+            "BypassNginxWS",
+            "JakartaBypassNginxWS"
+        ]
+    },
+    "Suo5v2": {
+        "InforSuite": [
+            "Listener",
+            "JakartaListener",
+            "Filter",
+            "JakartaFilter",
+            "Valve",
+            "JakartaValve",
+            "AgentFilterChain",
+            "AgentContextValve"
+        ],
+        "Tomcat": [
+            "Listener",
+            "JakartaListener",
+            "Filter",
+            "JakartaFilter",
+            "Valve",
+            "JakartaValve",
+            "ProxyValve",
+            "JakartaProxyValve",
+            "Servlet",
+            "JakartaServlet",
+            "AgentFilterChain",
+            "AgentContextValve"
+        ],
+        "JBoss": [
+            "Listener",
+            "Filter",
+            "Valve",
+            "ProxyValve",
+            "AgentFilterChain",
+            "AgentContextValve"
+        ],
+        "Struct2": [
+            "Action"
+        ],
+        "Apusic": [
+            "Listener",
+            "Filter",
+            "Servlet",
+            "AgentFilterChain"
+        ],
+        "BES": [
+            "Listener",
+            "Filter",
+            "Valve",
+            "AgentFilterChain",
+            "AgentContextValve"
+        ],
+        "SpringWebMvc": [
+            "Interceptor",
+            "JakartaInterceptor",
+            "ControllerHandler",
+            "JakartaControllerHandler",
+            "AgentFrameworkServlet"
+        ],
+        "WebLogic": [
+            "Listener",
+            "Filter",
+            "Servlet",
+            "AgentServletContext"
+        ],
+        "TongWeb": [
+            "Listener",
+            "Filter",
+            "Valve",
+            "AgentFilterChain",
+            "AgentContextValve"
+        ],
+        "Resin": [
+            "Listener",
+            "Filter",
+            "Servlet",
+            "AgentFilterChain"
+        ],
+        "WebSphere": [
+            "Listener",
+            "Filter",
+            "Servlet",
+            "AgentFilterManager"
+        ],
+        "Jetty": [
+            "Listener",
+            "JakartaListener",
+            "Filter",
+            "JakartaFilter",
+            "Servlet",
+            "JakartaServlet",
+            "Customizer",
+            "AgentHandler"
+        ],
+        "GlassFish": [
+            "Listener",
+            "JakartaListener",
+            "Filter",
+            "JakartaFilter",
+            "Valve",
+            "JakartaValve",
+            "AgentFilterChain",
+            "AgentContextValve"
+        ],
+        "Undertow": [
+            "Listener",
+            "JakartaListener",
+            "Filter",
+            "JakartaFilter",
+            "Servlet",
+            "JakartaServlet",
+            "AgentServletHandler"
+        ]
+    },
+    "Custom": {
+        "Tomcat": [
+            "Listener",
+            "JakartaListener",
+            "Filter",
+            "JakartaFilter",
+            "Valve",
+            "JakartaValve",
+            "ProxyValve",
+            "JakartaProxyValve",
+            "Servlet",
+            "JakartaServlet",
+            "AgentFilterChain",
+            "AgentContextValve",
+            "WebSocket",
+            "JakartaWebSocket",
+            "BypassNginxWS",
+            "JakartaBypassNginxWS",
+            "Upgrade"
+        ],
+        "Jetty": [
+            "Listener",
+            "JakartaListener",
+            "Filter",
+            "JakartaFilter",
+            "Servlet",
+            "JakartaServlet",
+            "Handler",
+            "JakartaHandler",
+            "Customizer",
+            "AgentHandler"
+        ],
+        "Undertow": [
+            "Listener",
+            "JakartaListener",
+            "Filter",
+            "JakartaFilter",
+            "Servlet",
+            "JakartaServlet",
+            "AgentServletHandler"
+        ],
+        "JBoss": [
+            "Listener",
+            "Filter",
+            "Valve",
+            "ProxyValve",
+            "AgentFilterChain",
+            "AgentContextValve"
+        ],
+        "Resin": [
+            "Listener",
+            "Filter",
+            "Servlet",
+            "AgentFilterChain"
+        ],
+        "WebLogic": [
+            "Listener",
+            "Filter",
+            "Servlet",
+            "AgentServletContext"
+        ],
+        "WebSphere": [
+            "Listener",
+            "Filter",
+            "Servlet",
+            "AgentFilterManager"
+        ],
+        "GlassFish": [
+            "Listener",
+            "JakartaListener",
+            "Filter",
+            "JakartaFilter",
+            "Valve",
+            "JakartaValve",
+            "AgentFilterChain",
+            "AgentContextValve"
+        ],
+        "TongWeb": [
+            "Listener",
+            "Filter",
+            "Valve",
+            "AgentFilterChain",
+            "AgentContextValve"
+        ],
+        "BES": [
+            "Listener",
+            "Filter",
+            "Valve",
+            "AgentFilterChain",
+            "AgentContextValve"
+        ],
+        "InforSuite": [
+            "Listener",
+            "JakartaListener",
+            "Filter",
+            "JakartaFilter",
+            "Valve",
+            "JakartaValve",
+            "AgentFilterChain",
+            "AgentContextValve"
+        ],
+        "Apusic": [
+            "Listener",
+            "Filter",
+            "Servlet",
+            "AgentFilterChain"
+        ],
+        "SpringWebMvc": [
+            "Interceptor",
+            "JakartaInterceptor",
+            "ControllerHandler",
+            "JakartaControllerHandler",
+            "AgentFrameworkServlet"
+        ],
+        "SpringWebFlux": [
+            "WebFilter",
+            "NettyHandler",
+            "HandlerMethod",
+            "HandlerFunction"
+        ],
+        "XXLJOB": [
+            "NettyHandler"
+        ],
+        "Struct2": [
+            "Action"
+        ]
+    },
+    "Command": {
+        "InforSuite": [
+            "Listener",
+            "JakartaListener",
+            "Filter",
+            "JakartaFilter",
+            "Valve",
+            "JakartaValve",
+            "AgentFilterChain",
+            "AgentContextValve"
+        ],
+        "Tomcat": [
+            "Listener",
+            "JakartaListener",
+            "Filter",
+            "JakartaFilter",
+            "Valve",
+            "JakartaValve",
+            "ProxyValve",
+            "JakartaProxyValve",
+            "Servlet",
+            "JakartaServlet",
+            "AgentFilterChain",
+            "AgentContextValve",
+            "WebSocket",
+            "JakartaWebSocket",
+            "BypassNginxWS",
+            "JakartaBypassNginxWS",
+            "Upgrade"
+        ],
+        "JBoss": [
+            "Listener",
+            "Filter",
+            "Valve",
+            "ProxyValve",
+            "AgentFilterChain",
+            "AgentContextValve"
+        ],
+        "Struct2": [
+            "Action"
+        ],
+        "Apusic": [
+            "Listener",
+            "Filter",
+            "Servlet",
+            "AgentFilterChain"
+        ],
+        "BES": [
+            "Listener",
+            "Filter",
+            "Valve",
+            "AgentFilterChain",
+            "AgentContextValve"
+        ],
+        "SpringWebMvc": [
+            "Interceptor",
+            "JakartaInterceptor",
+            "ControllerHandler",
+            "JakartaControllerHandler",
+            "AgentFrameworkServlet"
+        ],
+        "WebLogic": [
+            "Listener",
+            "Filter",
+            "Servlet",
+            "AgentServletContext"
+        ],
+        "TongWeb": [
+            "Listener",
+            "Filter",
+            "Valve",
+            "AgentFilterChain",
+            "AgentContextValve"
+        ],
+        "Resin": [
+            "Listener",
+            "Filter",
+            "Servlet",
+            "AgentFilterChain"
+        ],
+        "XXLJOB": [
+            "NettyHandler"
+        ],
+        "WebSphere": [
+            "Listener",
+            "Filter",
+            "Servlet",
+            "AgentFilterManager"
+        ],
+        "SpringWebFlux": [
+            "WebFilter",
+            "NettyHandler",
+            "HandlerMethod",
+            "HandlerFunction"
+        ],
+        "Jetty": [
+            "Listener",
+            "JakartaListener",
+            "Filter",
+            "JakartaFilter",
+            "Servlet",
+            "JakartaServlet",
+            "Handler",
+            "JakartaHandler",
+            "Customizer",
+            "AgentHandler"
+        ],
+        "GlassFish": [
+            "Listener",
+            "JakartaListener",
+            "Filter",
+            "JakartaFilter",
+            "Valve",
+            "JakartaValve",
+            "AgentFilterChain",
+            "AgentContextValve"
+        ],
+        "Undertow": [
+            "Listener",
+            "JakartaListener",
+            "Filter",
+            "JakartaFilter",
+            "Servlet",
+            "JakartaServlet",
+            "AgentServletHandler"
+        ]
+    },
+    "AntSword": {
+        "InforSuite": [
+            "Listener",
+            "Filter",
+            "Valve",
+            "AgentFilterChain",
+            "AgentContextValve"
+        ],
+        "Tomcat": [
+            "Listener",
+            "Filter",
+            "Valve",
+            "ProxyValve",
+            "Servlet",
+            "AgentFilterChain",
+            "AgentContextValve"
+        ],
+        "JBoss": [
+            "Listener",
+            "Filter",
+            "Valve",
+            "ProxyValve",
+            "AgentFilterChain",
+            "AgentContextValve"
+        ],
+        "Struct2": [
+            "Action"
+        ],
+        "Apusic": [
+            "Listener",
+            "Filter",
+            "Servlet",
+            "AgentFilterChain"
+        ],
+        "BES": [
+            "Listener",
+            "Filter",
+            "Valve",
+            "AgentFilterChain",
+            "AgentContextValve"
+        ],
+        "SpringWebMvc": [
+            "Interceptor",
+            "ControllerHandler",
+            "AgentFrameworkServlet"
+        ],
+        "WebLogic": [
+            "Listener",
+            "Filter",
+            "Servlet",
+            "AgentServletContext"
+        ],
+        "TongWeb": [
+            "Listener",
+            "Filter",
+            "Valve",
+            "AgentFilterChain",
+            "AgentContextValve"
+        ],
+        "Resin": [
+            "Listener",
+            "Filter",
+            "Servlet",
+            "AgentFilterChain"
+        ],
+        "WebSphere": [
+            "Listener",
+            "Filter",
+            "Servlet",
+            "AgentFilterManager"
+        ],
+        "Jetty": [
+            "Listener",
+            "Filter",
+            "Servlet",
+            "AgentHandler"
+        ],
+        "GlassFish": [
+            "Listener",
+            "Filter",
+            "Valve",
+            "AgentFilterChain",
+            "AgentContextValve"
+        ],
+        "Undertow": [
+            "Listener",
+            "Filter",
+            "Servlet",
+            "AgentServletHandler"
+        ]
+    },
+    "Behinder": {
+        "InforSuite": [
+            "Listener",
+            "JakartaListener",
+            "Filter",
+            "JakartaFilter",
+            "Valve",
+            "JakartaValve",
+            "AgentFilterChain",
+            "AgentContextValve"
+        ],
+        "Tomcat": [
+            "Listener",
+            "JakartaListener",
+            "Filter",
+            "JakartaFilter",
+            "Valve",
+            "JakartaValve",
+            "ProxyValve",
+            "JakartaProxyValve",
+            "Servlet",
+            "JakartaServlet",
+            "AgentFilterChain",
+            "AgentContextValve"
+        ],
+        "JBoss": [
+            "Listener",
+            "Filter",
+            "Valve",
+            "ProxyValve",
+            "AgentFilterChain",
+            "AgentContextValve"
+        ],
+        "Struct2": [
+            "Action"
+        ],
+        "Apusic": [
+            "Listener",
+            "Filter",
+            "Servlet",
+            "AgentFilterChain"
+        ],
+        "BES": [
+            "Listener",
+            "Filter",
+            "Valve",
+            "AgentFilterChain",
+            "AgentContextValve"
+        ],
+        "SpringWebMvc": [
+            "Interceptor",
+            "JakartaInterceptor",
+            "ControllerHandler",
+            "JakartaControllerHandler",
+            "AgentFrameworkServlet"
+        ],
+        "WebLogic": [
+            "Listener",
+            "Filter",
+            "Servlet",
+            "AgentServletContext"
+        ],
+        "TongWeb": [
+            "Listener",
+            "Filter",
+            "Valve",
+            "AgentFilterChain",
+            "AgentContextValve"
+        ],
+        "Resin": [
+            "Listener",
+            "Filter",
+            "Servlet",
+            "AgentFilterChain"
+        ],
+        "WebSphere": [
+            "Listener",
+            "Filter",
+            "Servlet",
+            "AgentFilterManager"
+        ],
+        "Jetty": [
+            "Listener",
+            "JakartaListener",
+            "Filter",
+            "JakartaFilter",
+            "Servlet",
+            "JakartaServlet",
+            "AgentHandler"
+        ],
+        "GlassFish": [
+            "Listener",
+            "JakartaListener",
+            "Filter",
+            "JakartaFilter",
+            "Valve",
+            "JakartaValve",
+            "AgentFilterChain",
+            "AgentContextValve"
+        ],
+        "Undertow": [
+            "Listener",
+            "JakartaListener",
+            "Filter",
+            "JakartaFilter",
+            "Servlet",
+            "JakartaServlet",
+            "AgentServletHandler"
+        ]
+    },
+    "Godzilla": {
+        "InforSuite": [
+            "Listener",
+            "JakartaListener",
+            "Filter",
+            "JakartaFilter",
+            "Valve",
+            "JakartaValve",
+            "AgentFilterChain",
+            "AgentContextValve"
+        ],
+        "Tomcat": [
+            "Listener",
+            "JakartaListener",
+            "Filter",
+            "JakartaFilter",
+            "Valve",
+            "JakartaValve",
+            "ProxyValve",
+            "JakartaProxyValve",
+            "Servlet",
+            "JakartaServlet",
+            "AgentFilterChain",
+            "AgentContextValve",
+            "WebSocket",
+            "JakartaWebSocket",
+            "BypassNginxWS",
+            "JakartaBypassNginxWS"
+        ],
+        "JBoss": [
+            "Listener",
+            "Filter",
+            "Valve",
+            "ProxyValve",
+            "AgentFilterChain",
+            "AgentContextValve"
+        ],
+        "Struct2": [
+            "Action"
+        ],
+        "Apusic": [
+            "Listener",
+            "Filter",
+            "Servlet",
+            "AgentFilterChain"
+        ],
+        "BES": [
+            "Listener",
+            "Filter",
+            "Valve",
+            "AgentFilterChain",
+            "AgentContextValve"
+        ],
+        "SpringWebMvc": [
+            "Interceptor",
+            "JakartaInterceptor",
+            "ControllerHandler",
+            "JakartaControllerHandler",
+            "AgentFrameworkServlet"
+        ],
+        "WebLogic": [
+            "Listener",
+            "Filter",
+            "Servlet",
+            "AgentServletContext"
+        ],
+        "TongWeb": [
+            "Listener",
+            "Filter",
+            "Valve",
+            "AgentFilterChain",
+            "AgentContextValve"
+        ],
+        "Resin": [
+            "Listener",
+            "Filter",
+            "Servlet",
+            "AgentFilterChain"
+        ],
+        "XXLJOB": [
+            "NettyHandler"
+        ],
+        "WebSphere": [
+            "Listener",
+            "Filter",
+            "Servlet",
+            "AgentFilterManager"
+        ],
+        "SpringWebFlux": [
+            "WebFilter",
+            "NettyHandler",
+            "HandlerMethod",
+            "HandlerFunction"
+        ],
+        "Jetty": [
+            "Listener",
+            "JakartaListener",
+            "Filter",
+            "JakartaFilter",
+            "Servlet",
+            "JakartaServlet",
+            "Handler",
+            "JakartaHandler",
+            "Customizer",
+            "AgentHandler"
+        ],
+        "GlassFish": [
+            "Listener",
+            "JakartaListener",
+            "Filter",
+            "JakartaFilter",
+            "Valve",
+            "JakartaValve",
+            "AgentFilterChain",
+            "AgentContextValve"
+        ],
+        "Undertow": [
+            "Listener",
+            "JakartaListener",
+            "Filter",
+            "JakartaFilter",
+            "Servlet",
+            "JakartaServlet",
+            "AgentServletHandler"
+        ]
+    },
+    "NeoreGeorg": {
+        "InforSuite": [
+            "Listener",
+            "JakartaListener",
+            "Filter",
+            "JakartaFilter",
+            "Valve",
+            "JakartaValve",
+            "AgentFilterChain",
+            "AgentContextValve"
+        ],
+        "Tomcat": [
+            "Listener",
+            "JakartaListener",
+            "Filter",
+            "JakartaFilter",
+            "Valve",
+            "JakartaValve",
+            "ProxyValve",
+            "JakartaProxyValve",
+            "Servlet",
+            "JakartaServlet",
+            "AgentFilterChain",
+            "AgentContextValve"
+        ],
+        "JBoss": [
+            "Listener",
+            "Filter",
+            "Valve",
+            "ProxyValve",
+            "AgentFilterChain",
+            "AgentContextValve"
+        ],
+        "Struct2": [
+            "Action"
+        ],
+        "Apusic": [
+            "Listener",
+            "Filter",
+            "Servlet",
+            "AgentFilterChain"
+        ],
+        "BES": [
+            "Listener",
+            "Filter",
+            "Valve",
+            "AgentFilterChain",
+            "AgentContextValve"
+        ],
+        "SpringWebMvc": [
+            "Interceptor",
+            "JakartaInterceptor",
+            "ControllerHandler",
+            "JakartaControllerHandler",
+            "AgentFrameworkServlet"
+        ],
+        "WebLogic": [
+            "Listener",
+            "Filter",
+            "Servlet",
+            "AgentServletContext"
+        ],
+        "TongWeb": [
+            "Listener",
+            "Filter",
+            "Valve",
+            "AgentFilterChain",
+            "AgentContextValve"
+        ],
+        "Resin": [
+            "Listener",
+            "Filter",
+            "Servlet",
+            "AgentFilterChain"
+        ],
+        "WebSphere": [
+            "Listener",
+            "Filter",
+            "Servlet",
+            "AgentFilterManager"
+        ],
+        "Jetty": [
+            "Listener",
+            "JakartaListener",
+            "Filter",
+            "JakartaFilter",
+            "Servlet",
+            "JakartaServlet",
+            "AgentHandler"
+        ],
+        "GlassFish": [
+            "Listener",
+            "JakartaListener",
+            "Filter",
+            "JakartaFilter",
+            "Valve",
+            "JakartaValve",
+            "AgentFilterChain",
+            "AgentContextValve"
+        ],
+        "Undertow": [
+            "Listener",
+            "JakartaListener",
+            "Filter",
+            "JakartaFilter",
+            "Servlet",
+            "JakartaServlet",
+            "AgentServletHandler"
+        ]
+    }
+}
