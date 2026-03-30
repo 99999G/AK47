@@ -48,6 +48,10 @@ Apply these internationalization rules:
 - `default` must only use allowed fields from syntax docs.
 - Request templates only allow `{{}}` interpolation.
 - `expr` must be boolean and orchestrate rule flow.
+- Prioritize echo command execution or MemShell confirmation over OOB for RCE unless the exploit only supports OOB-style verification.
+- Use `print` to present exploit results together with relevant verification details.
+- Do not generate OS-specific shell wrappers such as `echo %s|base64 -d|bash` unless the target OS and shell are confirmed.
+- Use a dedicated boundary variable for multipart uploads that use `----WebKitFormBoundary{{...}}`, and do not mix it with unrelated variables.
 - For MemShell plugins, use [assets/MemShell.json](assets/MemShell.json) to select valid tool/server/method combinations.
 
 ## Output Conventions

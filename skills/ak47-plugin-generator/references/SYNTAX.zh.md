@@ -84,9 +84,10 @@ rules:
         # 规则匹配表达式
         expr: response.body.HasPrefix(Magic)
     r1:
-        # 请求模板, 只允许 {{}} 填充变量
+        # 请求模板, 只允许 {{}} 填充变量而非表达式
         request:
             body: "{{Param}}"
+        # 规则匹配表达式
         expr: response.body.HasPrefix(Magic)
         # 当规则匹配时, 输出表达式结果
         print:
@@ -141,7 +142,7 @@ default:
 # 规则集合
 rules:
     r0:
-        # 请求模板, 只允许 {{}} 填充变量
+        # 请求模板, 只允许 {{}} 填充变量而非表达式
         request:
             method: POST
             path: /login
@@ -154,6 +155,7 @@ rules:
             # 变量名: 表达式
             Token: response.body.Submatch(`"token":"(.+?)"`)
     r1:
+        # 请求模板, 只允许 {{}} 填充变量而非表达式
         request:
             method: POST
             path: /exec
@@ -161,6 +163,7 @@ rules:
                 Token: "{{Token}}"
                 Content-Type: application/x-www-form-urlencoded
             body: "cmd={{Command}}"
+        # 规则匹配表达式
         expr: response.status == 200 && response.body.Has(UUID)
         # 当规则匹配时, 输出表达式结果
         print:
@@ -223,11 +226,12 @@ rules:
             # 变量名: 表达式
             Token: response.body.Submatch(`"token":"(.+?)"`)
     r1:
-        # 请求模板, 只允许 {{}} 填充变量
+        # 请求模板, 只允许 {{}} 填充变量而非表达式
         request:
             method: Text    # 支持 Text, Ping, Pong, Close, Binary
             body: |
                 {"file":"{{Shell}}","token":"{{Token}}"}
+        # 规则匹配表达式
         expr: response.body.Has("success")
         # 当规则匹配时, 输出表达式结果
         print:
@@ -377,7 +381,7 @@ filter(tweets, {len(.Content) > 240}) 或 filter(tweets, len(.Content) > 240)
 
 | 方法                                   | 说明              | 示例                                                                                                       |
 | -------------------------------------- | ----------------- | ---------------------------------------------------------------------------------------------------------- |
-| `exploit.command.Set(key, value, ...)` | 设置命令属性      | `exploit.command.Set("bypass", true, "header", "X-Cmd")`                                                   |
+| `exploit.command.Set(key, value, ...)` | 设置命令属性      | `exploit.command.Set("bypass", true, "header", "X-API-Key")`                                                   |
 | `exploit.command.OOB(os?)`             | 带外回显命令      | `exploit.command.OOB("windows")`                                                                           |
 | `exploit.command.Msp(format)`          | 命令回显载荷      | `exploit.command.Msp("SpEL")`                                                                              |
 | `exploit.command.Yso(gadget)`          | Java 反序列化载荷 | `exploit.command.Yso("CommonsBeanutils1")`                                                                 |
@@ -387,6 +391,8 @@ filter(tweets, {len(.Content) > 240}) 或 filter(tweets, len(.Content) > 240)
 `exploit.command.Msp` 支持 `format` 如下:
 
 `AbstractTranslet`, `Aviator`, `Base64`, `Base64URLEncoded`, `BCEL`, `BeanShell`, `BigInteger`, `Class`, `ClassLoaderJSP`, `ClassLoaderJSPUnicode`, `DefaultBase64`, `DefaultScriptEngine`, `DefineClassJSP`, `DefineClassJSPUnicode`, `EL`, `Freemarker`, `Groovy`, `GroovyClassDefiner`, `GroovyScriptEngine`, `GzipBase64`, `H2`, `H2Javac`, `H2JS`, `H2JSURLEncode`, `Hessian2Deserialize`, `Hessian2XSLTScriptEngine`, `HessianDeserialize`, `HessianXSLTScriptEngine`, `JavaCommonsBeanutils110`, `JavaCommonsBeanutils16`, `JavaCommonsBeanutils17`, `JavaCommonsBeanutils18`, `JavaCommonsBeanutils19`, `JavaCommonsCollections3`, `JavaCommonsCollections4`, `JavaDeserialize`, `JDKAbstractTransletPacker`, `JEXL`, `JinJava`, `JSP`, `JSPX`, `JSPXUnicode`, `JXPath`, `JXPathScriptEngine`, `JXPathSpringGzip`, `JXPathSpringGzipJDK17`, `MVEL`, `OGNL`, `OGNLScriptEngine`, `OGNLSpringGzip`, `OGNLSpringGzipJDK17`, `OracleAbstractTransletPacker`, `Rhino`, `ScriptEngine`, `ScriptEngineBigInteger`, `ScriptEngineNoSquareBrackets`, `SpEL`, `SpELScriptEngine`, `SpELSpringGzip`, `SpELSpringGzipJDK17`, `Velocity`, `XalanAbstractTransletPacker`, `XMLDecoder`, `XMLDecoderDefineClass`, `XMLDecoderScriptEngine`
+
+特别说明: `exploit.command.Msp`, `exploit.command.Yso`, `exploit.command.JNDI`, `exploit.command.Chains` 需要搭配请求头 `X-Access-Token`, 该请求头可通过 `exploit.command.Set("header", "X-API-Key")` 进行设置
 
 **memshell** - 内存马注入
 

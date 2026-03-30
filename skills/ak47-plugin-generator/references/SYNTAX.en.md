@@ -84,9 +84,10 @@ rules:
         # Rule matching expression
         expr: response.body.HasPrefix(Magic)
     r1:
-        # Request template, only allows {{}} to populate variables
+        # Request template, only allows {{}} to populate variables rather than expressions
         request:
             body: "{{Param}}"
+        # Rule matching expression
         expr: response.body.HasPrefix(Magic)
         # Output expression results when rule matches
         print:
@@ -141,7 +142,7 @@ default:
 # Rule collection
 rules:
     r0:
-        # Request template, only allows {{}} to populate variables
+        # Request template, only allows {{}} to populate variables rather than expressions
         request:
             method: POST
             path: /login
@@ -154,6 +155,7 @@ rules:
             # Variable name: Expression
             Token: response.body.Submatch(`"token":"(.+?)"`)
     r1:
+        # Request template, only allows {{}} to populate variables rather than expressions
         request:
             method: POST
             path: /exec
@@ -161,6 +163,7 @@ rules:
                 Token: "{{Token}}"
                 Content-Type: application/x-www-form-urlencoded
             body: "cmd={{Command}}"
+        # Rule matching expression
         expr: response.status == 200 && response.body.Has(UUID)
         # Output expression results when rule matches
         print:
@@ -223,11 +226,12 @@ rules:
             # Variable name: Expression
             Token: response.body.Submatch(`"token":"(.+?)"`)
     r1:
-        # Request template, only allows {{}} to populate variables
+        # Request template, only allows {{}} to populate variables rather than expressions
         request:
             method: Text    # Supports Text, Ping, Pong, Close, Binary
             body: |
                 {"file":"{{Shell}}","token":"{{Token}}"}
+        # Rule matching expression
         expr: response.body.Has("success")
         # Output expression results when rule matches
         print:
@@ -377,7 +381,7 @@ filter(tweets, {len(.Content) > 240}) or filter(tweets, len(.Content) > 240)
 
 | Method                                 | Description                  | Example                                                                                                    |
 | -------------------------------------- | ---------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `exploit.command.Set(key, value, ...)` | Set command property         | `exploit.command.Set("bypass", true, "header", "X-Cmd")`                                                   |
+| `exploit.command.Set(key, value, ...)` | Set command property         | `exploit.command.Set("bypass", true, "header", "X-API-Key")`                                               |
 | `exploit.command.OOB(os?)`             | Out-of-band echo command     | `exploit.command.OOB("windows")`                                                                           |
 | `exploit.command.Msp(format)`          | Echo command payload         | `exploit.command.Msp("SpEL")`                                                                              |
 | `exploit.command.Yso(gadget)`          | Java deserialization payload | `exploit.command.Yso("CommonsBeanutils1")`                                                                 |
@@ -387,6 +391,8 @@ filter(tweets, {len(.Content) > 240}) or filter(tweets, len(.Content) > 240)
 `exploit.command.Msp` `format` supports the following:
 
 `AbstractTranslet`, `Aviator`, `Base64`, `Base64URLEncoded`, `BCEL`, `BeanShell`, `BigInteger`, `Class`, `ClassLoaderJSP`, `ClassLoaderJSPUnicode`, `DefaultBase64`, `DefaultScriptEngine`, `DefineClassJSP`, `DefineClassJSPUnicode`, `EL`, `Freemarker`, `Groovy`, `GroovyClassDefiner`, `GroovyScriptEngine`, `GzipBase64`, `H2`, `H2Javac`, `H2JS`, `H2JSURLEncode`, `Hessian2Deserialize`, `Hessian2XSLTScriptEngine`, `HessianDeserialize`, `HessianXSLTScriptEngine`, `JavaCommonsBeanutils110`, `JavaCommonsBeanutils16`, `JavaCommonsBeanutils17`, `JavaCommonsBeanutils18`, `JavaCommonsBeanutils19`, `JavaCommonsCollections3`, `JavaCommonsCollections4`, `JavaDeserialize`, `JDKAbstractTransletPacker`, `JEXL`, `JinJava`, `JSP`, `JSPX`, `JSPXUnicode`, `JXPath`, `JXPathScriptEngine`, `JXPathSpringGzip`, `JXPathSpringGzipJDK17`, `MVEL`, `OGNL`, `OGNLScriptEngine`, `OGNLSpringGzip`, `OGNLSpringGzipJDK17`, `OracleAbstractTransletPacker`, `Rhino`, `ScriptEngine`, `ScriptEngineBigInteger`, `ScriptEngineNoSquareBrackets`, `SpEL`, `SpELScriptEngine`, `SpELSpringGzip`, `SpELSpringGzipJDK17`, `Velocity`, `XalanAbstractTransletPacker`, `XMLDecoder`, `XMLDecoderDefineClass`, `XMLDecoderScriptEngine`
+
+Special note: `exploit.command.Msp`, `exploit.command.Yso`, `exploit.command.JNDI`, and `exploit.command.Chains` require a request header. The default header name is `X-Access-Token`, and it can be changed with `exploit.command.Set("header", "X-API-Key")`.
 
 **memshell** - MemShell Injection
 
