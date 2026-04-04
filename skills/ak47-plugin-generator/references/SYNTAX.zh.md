@@ -625,6 +625,14 @@ md5("hello") == "5d41402abc4b2a76b9719d911017c592"
 sha("sha256", "hello") == "2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824"
 ```
 
+#### sm3(v)
+
+计算数据的 SM3 哈希值, 返回小写的十六进制字符串
+
+```expr
+sm3("hello") == "becbbfaae6548b8bf0cfcad5a27183cd1be6093b1cceccc303d9c61d0a645268"
+```
+
 #### xor(key, v)
 
 对数据进行异或运算
@@ -667,6 +675,15 @@ des("CBC", "1234567812345678", "1234567812345678", "hello") == "\x1d\x18\x16\x14
 toDES("CBC", "1234567812345678", "1234567812345678", "hello") == "\x1d\x18\x16\x14\x12..."
 ```
 
+#### sm4(mode, key, iv, v) / toSM4(mode, key, iv, v)
+
+使用 SM4 算法加密数据, 支持`ECB`, `CBC`, `CFB`, `CTR`, `OFB`, `GCM`
+
+```expr
+sm4("CBC", "1234567812345678", "1234567812345678", "hello") == "\x1d\x18\x16\x14\x12..."
+toSM4("CBC", "1234567812345678", "1234567812345678", "hello") == "\x1d\x18\x16\x14\x12..."
+```
+
 #### rsa(key, v) / toRSA(key, v)
 
 使用 RSA 公钥或私钥加密数据
@@ -674,6 +691,20 @@ toDES("CBC", "1234567812345678", "1234567812345678", "hello") == "\x1d\x18\x16\x
 ```expr
 rsa("-----BEGIN PUBLIC KEY-----...", "hello 123") == "\x10\xb2\x91\x8c..."
 toRSA("-----BEGIN PRIVATE KEY-----...", "hello 321") == "\x80\xf4\xc2\xa6..."
+```
+
+#### sm2(key, v, mode?) / toSM2(key, v, mode?)
+
+使用 SM2 公钥或私钥加密数据
+
+支持 `mode` 如下:
+
+- C1C3C2
+- C1C2C3
+
+```expr
+sm2("-----BEGIN PUBLIC KEY-----...", "hello 123", "C1C3C2") == "\x10\xb2\x91\x8c..."
+toSM2("-----BEGIN PRIVATE KEY-----...", "hello 321", "C1C3C2") == "\x80\xf4\xc2\xa6..."
 ```
 
 #### fromAES(mode, key, iv, v)
@@ -692,6 +723,14 @@ fromAES("CBC", "1234567812345678", "1234567812345678", "\x1d\x18\x16\x14\x12..."
 fromDES("CBC", "1234567812345678", "1234567812345678", "\x1d\x18\x16\x14\x12...") == "hello"
 ```
 
+#### fromSM4(mode, key, iv, v)
+
+使用 SM4 算法解密数据, 支持`ECB`, `CBC`, `CFB`, `CTR`, `OFB`, `GCM`
+
+```expr
+fromSM4("CBC", "1234567812345678", "1234567812345678", "\x1d\x18\x16\x14\x12...") == "hello"
+```
+
 #### fromRSA(key, v)
 
 使用 RSA 公钥或私钥解密数据
@@ -699,6 +738,19 @@ fromDES("CBC", "1234567812345678", "1234567812345678", "\x1d\x18\x16\x14\x12..."
 ```expr
 fromRSA("-----BEGIN PUBLIC KEY-----...", "\x80\xf4\xc2\xa6...") == "hello 321"
 fromRSA("-----BEGIN PRIVATE KEY-----...", "\x10\xb2\x91\x8c...") == "hello 123"
+```
+
+#### fromSM2(key, v, mode?)
+
+使用 SM2 私钥解密数据
+
+支持 `mode` 如下:
+
+- C1C3C2
+- C1C2C3
+
+```expr
+fromSM2("-----BEGIN PRIVATE KEY-----...", "\x10\xb2\x91\x8c...", "C1C3C2") == "hello 123"
 ```
 
 ### 编解码

@@ -625,6 +625,14 @@ Computes the SHA hash of the data using the specified algorithm (sha1, sha224, s
 sha("sha256", "hello") == "2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824"
 ```
 
+#### sm3(v)
+
+Computes the SM3 hash of the data, returning a lowercase hexadecimal string.
+
+```expr
+sm3("hello") == "becbbfaae6548b8bf0cfcad5a27183cd1be6093b1cceccc303d9c61d0a645268"
+```
+
 #### xor(key, v)
 
 Performs a XOR operation on the given data.
@@ -667,6 +675,15 @@ des("CBC", "1234567812345678", "1234567812345678", "hello") == "\x1d\x18\x16\x14
 toDES("CBC", "1234567812345678", "1234567812345678", "hello") == "\x1d\x18\x16\x14\x12..."
 ```
 
+#### sm4(mode, key, iv, v) / toSM4(mode, key, iv, v)
+
+Encrypts data using the SM4 algorithm, supporting `ECB`, `CBC`, `CFB`, `CTR`, `OFB`, `GCM`.
+
+```expr
+sm4("CBC", "1234567812345678", "1234567812345678", "hello") == "\x1d\x18\x16\x14\x12..."
+toSM4("CBC", "1234567812345678", "1234567812345678", "hello") == "\x1d\x18\x16\x14\x12..."
+```
+
 #### rsa(key, v) / toRSA(key, v)
 
 Encrypts data using an RSA public or private key.
@@ -674,6 +691,20 @@ Encrypts data using an RSA public or private key.
 ```expr
 rsa("-----BEGIN PUBLIC KEY-----...", "hello 123") == "\x10\xb2\x91\x8c..."
 toRSA("-----BEGIN PRIVATE KEY-----...", "hello 321") == "\x80\xf4\xc2\xa6..."
+```
+
+#### sm2(key, v, mode?) / toSM2(key, v, mode?)
+
+Encrypts data using an SM2 public or private key.
+
+Supported `mode`s are:
+
+- C1C3C2
+- C1C2C3
+
+```expr
+sm2("-----BEGIN PUBLIC KEY-----...", "hello 123", "C1C3C2") == "\x10\xb2\x91\x8c..."
+toSM2("-----BEGIN PRIVATE KEY-----...", "hello 321", "C1C3C2") == "\x80\xf4\xc2\xa6..."
 ```
 
 #### fromAES(mode, key, iv, v)
@@ -692,6 +723,14 @@ Decrypts data using the DES algorithm, supporting `ECB`, `CBC`, `CFB`, `CTR`, `O
 fromDES("CBC", "1234567812345678", "1234567812345678", "\x1d\x18\x16\x14\x12...") == "hello"
 ```
 
+#### fromSM4(mode, key, iv, v)
+
+Decrypts data using the SM4 algorithm, supporting `ECB`, `CBC`, `CFB`, `CTR`, `OFB`, `GCM`.
+
+```expr
+fromSM4("CBC", "1234567812345678", "1234567812345678", "\x1d\x18\x16\x14\x12...") == "hello"
+```
+
 #### fromRSA(key, v)
 
 Decrypts data using an RSA public or private key.
@@ -699,6 +738,19 @@ Decrypts data using an RSA public or private key.
 ```expr
 fromRSA("-----BEGIN PUBLIC KEY-----...", "\x80\xf4\xc2\xa6...") == "hello 321"
 fromRSA("-----BEGIN PRIVATE KEY-----...", "\x10\xb2\x91\x8c...") == "hello 123"
+```
+
+#### fromSM2(key, v, mode?)
+
+Decrypts data using an SM2 private key.
+
+Supported `mode`s are:
+
+- C1C3C2
+- C1C2C3
+
+```expr
+fromSM2("-----BEGIN PRIVATE KEY-----...", "\x10\xb2\x91\x8c...", "C1C3C2") == "hello 123"
 ```
 
 ### Encoding and Decoding
